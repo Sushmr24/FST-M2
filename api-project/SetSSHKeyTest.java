@@ -15,22 +15,22 @@ import static io.restassured.RestAssured.given;
 public class SetSSHKeyTest {
     // Set base URL
     final static String baseURI = "https://api.github.com";
-    static String SSHKey = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDFWMfyWQRuPnaa24ATt9DwnXyi2aD405PDJS0OUD0uXXXXXXXXXXXXXXXXXXXXXXX=";
+    static String SSHKey = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDFWMfyWQRuPnaa24ATt9DwnXyi2aD405PDJS0OUD0uKoPojTVsxRyb0VygIoIWgRXSzMZlEasQNiAhb8FL6wXLjIqWODYHUQr5KMeEYiy55X1DhkgZw3MQmvEM/2Y8IBTXwq6zn9iZW0jaVX/0c/l8W068QkLAG6Jm0tyniYP/w9oHQs4BSjUzVUEH3XC8CX+CTVfgTUUy+e7pNTE04E3DUfCqAMJn9D9rIcLibnlia2Dg5URK7iRcXRPrdBTe/+x7yBvH5K/4Nn9CC4eqKKDhZ7Ee+40rYRUqfVZncgCYwM2kOJ3a051C+D6sJoZop+ohxRHUJDdgDuyck/SC8+aadt2YVMJMB3L+iUdN+ScQ51QvrnHpJCXZeATHBAxFUcfDTChsfder4XCJqpMwsYEFx6JaKowFlbi3Cx2F/uRUpgOAlT+oR0ZQfsvtQSmQ/6tq6kTLoD8Mv9/9XUyouZoFcSJgNURtJTCwonzf+kaMWd6PPjEKR1/uESYzXkrrtG8=";
     static int id ;
     RequestSpecification requestSpec ;
 
     @BeforeClass
     public void setup()
     {
-        requestSpec =  new RequestSpecBuilder().setContentType(ContentType.JSON).addHeader("Authorization","token ghp_xxxxxxxxxxxxxxx").setBaseUri(baseURI).build();
+        requestSpec =  new RequestSpecBuilder().setContentType(ContentType.JSON).addHeader("Authorization","token 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").setBaseUri(baseURI).build();
     }
 
 
     @Test(priority=1)
-    public void getEmail()
+    public void getSshkey()
     {
 
-        Response response =given().spec(requestSpec).get("/user/emails"); // Send GET request
+        Response response =given().spec(requestSpec).get("/user/keys"); // Send GET request
 
         // Print response
         String body = response.getBody().asPrettyString();
