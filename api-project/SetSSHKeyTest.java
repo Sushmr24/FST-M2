@@ -26,7 +26,7 @@ public class SetSSHKeyTest {
     }
 
 
-    @Test(priority=1)
+    @Test(priority=2)
     public void getSshkey()
     {
 
@@ -38,7 +38,7 @@ public class SetSSHKeyTest {
 
     }
 
-    @Test(priority=2)
+    @Test(priority=1)
     public void addSshKey()
     {
         String reqBody = "{"
